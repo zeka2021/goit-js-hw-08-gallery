@@ -79,7 +79,7 @@ function createGalleryItemsMarkup(galleryItems) {
      <img
       class="gallery__image"
       src="${preview}"
-      data-source="{$original}"
+      data-source="${original}"
       alt="${description}"
      />
     </a>
@@ -87,5 +87,9 @@ function createGalleryItemsMarkup(galleryItems) {
       `;
     })
     .join('');
+}
+galleryItemsContainer.addEventListener('click', onConteinerClick);
+function onConteinerClick(event) {
+  event.preventDefault();
 }
 
