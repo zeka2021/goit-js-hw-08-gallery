@@ -66,6 +66,7 @@ const galleryItems = [
 const galleryItemsContainer = document.querySelector('.js-gallery');
 const galleryItemsMarkup = createGalleryItemsMarkup(galleryItems);
 galleryItemsContainer.insertAdjacentHTML('beforeend', galleryItemsMarkup);
+const modalImage = document.querySelector('.lightbox__image');
 
 function createGalleryItemsMarkup(galleryItems) {
   return galleryItems
@@ -91,5 +92,39 @@ function createGalleryItemsMarkup(galleryItems) {
 galleryItemsContainer.addEventListener('click', onConteinerClick);
 function onConteinerClick(event) {
   event.preventDefault();
-}
+  const imageRef = event.target;
+  const largeImageURL = imageRef.dataset.source;
+ if (event.target.nodeName !== 'IMG') {
+    return;
+  }
+  setLargeImageSrc(largeImageURL);
+
+}     
+ function  setLargeImageSrc(largeImageURL) {
+  galleryItems.forEach(({ original, description }) => {
+    if (largeImageURL === original) {
+      modalImage.src =`${original}`;
+      modalImage.alt = `${description}`;
+    }
+    console.log(largeImageURL)
+  });
+ }
+
+
+
+
+
+ 
+
+
+  
+    
+    
+
+  
+  
+    
+
+
+  
 
