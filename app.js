@@ -63,11 +63,64 @@ const galleryItems = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+// const galleryItemsContainer = document.querySelector('.js-gallery');
+// const galleryItemsMarkup = createGalleryItemsMarkup(galleryItems);
+// galleryItemsContainer.insertAdjacentHTML('beforeend', galleryItemsMarkup);
+// const modalImage = document.querySelector('.lightbox__image');
+
+// function createGalleryItemsMarkup(galleryItems) {
+//   return galleryItems
+//     .map(({ preview, original, description }) => {
+//       return `
+//   <li class="gallery__item">
+//      <a
+//        class="gallery__link"
+//        href="${original}"
+//       >
+//      <img
+//       class="gallery__image"
+//       src="${preview}"
+//       data-source="${original}"
+//       alt="${description}"
+//      />
+//     </a>
+//   </li> 
+//       `;
+//     })
+//     .join('');
+// }
+// galleryItemsContainer.addEventListener('click', onConteinerClick);
+// function onConteinerClick(event) {
+//   event.preventDefault();
+//   const imageRef = event.target;
+//   const largeImageURL = imageRef.dataset.source;
+//  if (event.target.nodeName !== 'IMG') {
+//     return;
+//   }
+//   setLargeImageSrc(largeImageURL);
+
+// }
+// const modalWindow = document.querySelector('.lightbox');
+// const largeModalImage = document.querySelector('img.lightbox__image');
+
+//  function  setLargeImageSrc(largeImageURL) {
+//   galleryItems.forEach(({ original, description }) => {
+//     if (largeImageURL === original) {
+//       modalImage.src =`${original}`;
+//       modalImage.alt = `${description}`;
+// // console.log(largeImageURL)
+//     }
+
+//   galleryItemsContainer.addEventListener('click', () => {
+//   modalWindow.classList.add('is-open');
+//   // setLargeImageSrc;
+//   });
+//  }
+
 const galleryItemsContainer = document.querySelector('.js-gallery');
 const galleryItemsMarkup = createGalleryItemsMarkup(galleryItems);
 galleryItemsContainer.insertAdjacentHTML('beforeend', galleryItemsMarkup);
 const modalImage = document.querySelector('.lightbox__image');
-
 function createGalleryItemsMarkup(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
@@ -94,23 +147,21 @@ function onConteinerClick(event) {
   event.preventDefault();
   const imageRef = event.target;
   const largeImageURL = imageRef.dataset.source;
- if (event.target.nodeName !== 'IMG') {
+  if (event.target.nodeName !== 'IMG') {
     return;
   }
   setLargeImageSrc(largeImageURL);
-
-}     
- function  setLargeImageSrc(largeImageURL) {
-  galleryItems.forEach(({ original, description }) => {
-    if (largeImageURL === original) {
-      modalImage.src =`${original}`;
-      modalImage.alt = `${description}`;
-    }
-    console.log(largeImageURL)
-  });
- }
-
-
+}
+const modalWindow = document.querySelector('.lightbox');
+const largeModalImage = document.querySelector('img.lightbox__image');
+function setLargeImageSrc(url) {
+  console.log((largeModalImage.src = url));
+  console.log(url);
+}
+galleryItemsContainer.addEventListener('click', () => {
+  modalWindow.classList.add('is-open');
+  // setLargeImageSrc;
+});
 
 
 
