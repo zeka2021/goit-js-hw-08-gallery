@@ -162,12 +162,19 @@ galleryItemsContainer.addEventListener('click', () => {
   modalWindow.classList.add('is-open');
   // setLargeImageSrc;
 });
+const closeModalBtn = document.querySelector('.lightbox__button');
+closeModalBtn.addEventListener('click', function () {
+  console.log(closeModalBtn);
+   modalWindow.classList.remove('is-open');
+});
+  
 // закрытие на оверлее
 const overlay = document.querySelector('.lightbox__overlay');
 overlay.addEventListener('click', function () {
   console.log(overlay)
    modalWindow.classList.remove('is-open');
 });
+
 
 
 
